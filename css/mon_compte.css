@@ -1,0 +1,89 @@
+/* Contenu principal avec padding et fond */
+.main-content {
+    margin-left: 500px; /* espace pour le sidebar */
+    padding: 40px 60px; /* plus de padding à droite/gauche */
+    
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  
+  
+  
+  /* Titre de section */
+  .main-content h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30px;
+  }
+  
+  /* Style commun aux deux blocs (infos et formulaire) */
+  .card-box {
+    width: 50rem;
+    max-width: 1100px; /* plus large que 800px */
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  }
+  
+  
+  
+  /* Informations utilisateur */
+  .user-info p {
+    font-size: 16px;
+    margin: 12px 0;
+    color: #34495e;
+    line-height: 1.6;
+  }
+  
+  /* Formulaire */
+  form label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #2d3436;
+  }
+  
+  form input[type="text"],
+  form input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #fafafa;
+    transition: border-color 0.3s;
+  }
+  
+  form input:focus {
+    border-color: #3498db;
+    outline: none;
+    background-color: #fff;
+  }
+  
+  /* Bouton Mettre à jour */
+  form button {
+    margin-top: 30px;
+    padding: 14px 24px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: #2d83c2;
+  }
+  

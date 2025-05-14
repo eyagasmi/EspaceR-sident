@@ -1,0 +1,128 @@
+/* Réinitialisation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f4f6f8;
+    display: flex;
+}
+
+/* Contenu principal */
+.main-content {
+    margin-left: 250px; /* pour s'adapter à la navbar */
+    padding: 40px 60px;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Titre */
+.main-content h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* Boîte style carte */
+.card-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Conteneur profil (photo + infos) */
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.profile-photo img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+.profile-details p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #34495e;
+}
+
+/* Formulaire */
+form label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #2d3436;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #fafafa;
+    transition: border-color 0.3s;
+}
+
+form input:focus {
+    border-color: #3498db;
+    background-color: #fff;
+    outline: none;
+}
+
+form button {
+    margin-top: 30px;
+    padding: 14px 24px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #2d83c2;
+}
+.question-block {
+  margin-bottom: 20px;
+}
+
+.question-block p {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  color: #333;
+}
