@@ -20,37 +20,35 @@ if (isset($_POST['q1'], $_POST['q2'], $_POST['q3'], $_POST['q4'], $_POST['q5'], 
         $responses['q' . $i] = $_POST['q' . $i];
     }
 
-    // Calcule le score (somme des réponses)
+    // Calcule le score (somme des réponses où "oui" = 1, "non" = 0)
     $score = array_sum($responses);
+
+    // Détermine si l'utilisateur est satisfait ou non (si 5 réponses ou plus sont "oui", alors satisfait)
+    $satisfait = ($score >= 5) ? 'Satisfait' : 'Non satisfait';
 
     // Prépare la requête SQL pour insérer les données dans la base
     $stmt = $pdo->prepare("
-        INSERT INTO satisfaction (utilisateur_id, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, score)
-        VALUES (:utilisateur_id, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :score)
+        INSERT INTO satisfaction (utilisateur_id, score, satisfait, date_soumission)
+        VALUES (:utilisateur_id, :score, :satisfait, NOW())
     ");
 
     // Exécute la requête avec les données du formulaire
     $stmt->execute([
         ':utilisateur_id' => $userId,
-        ':q1' => $responses['q1'],
-        ':q2' => $responses['q2'],
-        ':q3' => $responses['q3'],
-        ':q4' => $responses['q4'],
-        ':q5' => $responses['q5'],
-        ':q6' => $responses['q6'],
-        ':q7' => $responses['q7'],
-        ':q8' => $responses['q8'],
-        ':q9' => $responses['q9'],
-        ':q10' => $responses['q10'],
         ':score' => $score,
+        ':satisfait' => $satisfait
     ]);
 
-    // Redirige l'utilisateur vers une page de confirmation ou vers son profil
-    header('Location: confirmation.php'); // Tu peux rediriger vers une page de confirmation
+    // Redirige avec un message de succès en utilisant la session
+    $_SESSION['success'] = "Merci pour votre participation ! Votre enquête de satisfaction a bien été envoyée.";
+
+    // Redirection vers la même page avec un message d'alerte
+    header('Location: satisfaction.php');
     exit;
 } else {
     // Si les réponses sont incomplètes, redirige vers la page de l'enquête
     header('Location: satisfaction.php?erreur=1');
     exit;
 }
+
 ?>

@@ -8,18 +8,12 @@ if (!isset($_SESSION['utilisateur_id']) || $_SESSION['role'] !== 'habitant') {
     exit;
 }
 
-$questions = [
-    "Es-tu satisfait de ton quartier ?",
-    "Es-tu satisfait par le syndic ?",
-    "Le voisinage est-il agréable ?",
-    "Les services d'entretien sont-ils efficaces ?",
-    "La sécurité est-elle suffisante ?",
-    "La propreté des lieux te convient-elle ?",
-    "Es-tu satisfait des espaces verts ?",
-    "Es-tu satisfait de l'éclairage public ?",
-    "Le stationnement est-il suffisant ?",
-    "Les informations sont-elles bien communiquées ?"
-];
+// Vérifie s'il y a un message de succès dans la session
+if (isset($_SESSION['success'])) {
+    echo "<script>alert('" . $_SESSION['success'] . "');</script>";
+    // Supprime le message après l'avoir affiché
+    unset($_SESSION['success']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +27,21 @@ $questions = [
 <div class="main-content">
     <h1>Enquête de Satisfaction</h1>
     <form action="traiter_satisfaction.php" method="POST" class="card-box">
-        <?php foreach ($questions as $index => $question): ?>
+        <?php 
+        $questions = [
+            "Es-tu satisfait de ton quartier ?",
+            "Es-tu satisfait par le syndic ?",
+            "Le voisinage est-il agréable ?",
+            "Les services d'entretien sont-ils efficaces ?",
+            "La sécurité est-elle suffisante ?",
+            "La propreté des lieux te convient-elle ?",
+            "Es-tu satisfait des espaces verts ?",
+            "Es-tu satisfait de l'éclairage public ?",
+            "Le stationnement est-il suffisant ?",
+            "Les informations sont-elles bien communiquées ?"
+        ];
+
+        foreach ($questions as $index => $question): ?>
             <div class="question-block">
                 <p><?= ($index + 1) ?>. <?= $question ?></p>
                 <div class="radio-group">

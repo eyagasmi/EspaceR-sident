@@ -1,0 +1,91 @@
+/* Base */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f8;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Titre centré */
+.page-title {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+
+}
+.page-title h1 {
+    font-size: 30px;
+    color: #111;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    
+}
+
+/* Contenu principal */
+.main-content {
+    margin-left: 500px; /* espace pour la sidebar */
+    padding: 40px 40px 40px; /* padding-top à cause du titre fixe */
+    max-width: 800px;
+}
+
+/* Formulaire */
+.demande-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.demande-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.demande-form input,
+.demande-form select,
+.demande-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.demande-form button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #0d2538;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.demande-form button:hover {
+    background-color: #1a3b5d;
+}
+
+/* Messages */
+.success {
+    color: green;
+    margin-top: 15px;
+}
+
+.error {
+    color: red;
+    margin-top: 15px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 120px 20px;
+    }
+}
