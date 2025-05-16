@@ -2,13 +2,13 @@
 session_start();
 require_once '../includes/db.php';
 
-// Vérifie si l'utilisateur est connecté
+//* Vérifie si l'utilisateur est connecté
 if (!isset($_SESSION['utilisateur_id'])) {
     header('Location: index.php'); // Redirection si non connecté
     exit;
 }
 
-// Récupérer l'utilisateur connecté
+//* Récupérer l'utilisateur connecté
 $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE id = ?");
 $stmt->execute([$_SESSION['utilisateur_id']]);
 $user = $stmt->fetch();
