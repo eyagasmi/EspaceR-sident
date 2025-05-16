@@ -8,7 +8,7 @@ if (!isset($_SESSION['utilisateur_id']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-// Traitement du formulaire
+//? Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nomvilla = $_POST['nomvilla'];
     $adresse = $_POST['adresse'];
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// Récupération des maisons à vendre
+//? Récupération des maisons à vendre
 $stmt = $pdo->prepare("SELECT * FROM maison_avendre ORDER BY date_ajout DESC");
 $stmt->execute();
 $maisons = $stmt->fetchAll();
